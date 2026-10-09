@@ -1,0 +1,41 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/style1.css' %}">
+{% endblock %}
+{% block content %}
+
+<!--Navbar-->
+    
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-header">
+            <h1>About Amazon</h1>
+            <p>Learn more about our mission, history, and values.</p>
+        </div>
+        <div class="about-content">
+            <div class="about-item">
+                <h2>Our Mission</h2>
+                <p>Amazon’s mission is to be Earth’s most customer-centric company, where customers can find and discover anything they might want to buy online, and endeavors to offer its customers the lowest possible prices.</p>
+            </div>
+            <div class="about-item">
+                <h2>Our History</h2>
+                <p>Founded in 1994 by Jeff Bezos, Amazon started as an online bookstore and has grown into a global marketplace, offering millions of products across various categories, from electronics to groceries, with a focus on innovation and customer satisfaction.</p>
+            </div>
+            <div class="about-item">
+                <h2>Our Values</h2>
+                <p>Amazon is guided by four principles: customer obsession, passion for invention, commitment to operational excellence, and long-term thinking. We strive to innovate and improve every day to serve our customers better.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    
+
+    
+
+{% endblock %}
+{% block extra_scripts %}
+<script src="{% static 'js/script1.js' %}"></script>
+{% endblock %}

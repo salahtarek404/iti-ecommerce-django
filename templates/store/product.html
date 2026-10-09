@@ -1,0 +1,44 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/style2.css' %}">
+{% endblock %}
+{% block content %}
+    <section id="products" class="products">
+        <div class="products-header">
+            <h1>Our Products</h1>
+            <p>Browse our wide selection of products across various categories.</p>
+            
+            <div class="filter-container" style="margin: 20px 0; text-align: center;">
+                <input type="text" id="search-bar" placeholder="Search products..." style="padding: 10px; width: 250px; margin-right: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <select id="category-filter" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                    <option value="all">All Categories</option>
+                    {% for category in categories %}
+                    <option value="{{ category }}">{{ category }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="product-grid">
+            {% for product in products %}
+            <div class="product-card" data-category="{{ product.category }}">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                {% else %}
+                <img src="{% static 'images/1.jpeg' %}" alt="{{ product.name }}">
+                {% endif %}
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description }}</p>
+                <p class="price">${{ product.price }}</p>
+                <!-- Add data attributes to help the js cart -->
+                <button class="add-to-cart" data-id="{{ product.id }}" data-name="{{ product.name }}" data-price="{{ product.price }}" data-image="{% if product.image %}{{ product.image.url }}{% else %}{% static 'images/1.jpeg' %}{% endif %}">Add to Cart</button>
+            </div>
+            {% empty %}
+            <p>No products available yet.</p>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+{% block extra_scripts %}
+<script src="{% static 'js/script2.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,149 @@
+/* Navbar Styles */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+
+
+/* Hero Section */
+.hero {
+    background-image: url('https://assets.aboutamazon.com/dims4/default/b0906cb/2147483647/strip/true/crop/2500x1407+0+546/resize/1240x698!/quality/90/?url=https://amazon-blogs-brightspot.s3.amazonaws.com/43/73/b77ab1e04b2b8c097c3bebbe1ca2/amazon-org-smile-extruded-sq.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-top: 70px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background-color: #f0c14b;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    background-color: #e0b038;
+}
+
+/* Product Section */
+.products {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.products h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    background-color: #232f3e;
+    color: white;
+    text-align: center;
+    padding: 40px;
+    margin-top: 50px;
+}
+
+.footer-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    li {
+        margin: 10px 0;
+    }
+
+    li img {
+        width: 100px;
+        margin: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}

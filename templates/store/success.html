@@ -1,0 +1,16 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/style5.css' %}">
+{% endblock %}
+{% block content %}
+<section id="cart" class="cart" style="min-height: 50vh; display: flex; align-items: center; justify-content: center;">
+    <div id="success" class="success" style="text-align: center;">
+        <div class="success-icon" style="font-size: 4rem; color: #4CAF50;">&#10003;</div>
+        <h2>Thank you, {{ order.customer_name }}! Your order has been placed successfully.</h2>
+        <p>Your order number is <strong>ORD-{{ order.id }}</strong>. Total paid: <strong>${{ order.total_price }}</strong></p>
+        <br>
+        <a href="{% url 'product_list' %}" class="cta-button" style="padding: 10px 20px; background: #333; color: white; text-decoration: none; border-radius: 5px;">Continue Shopping</a>
+    </div>
+</section>
+{% endblock %}

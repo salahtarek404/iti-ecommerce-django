@@ -1,0 +1,95 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/style5.css' %}">
+{% endblock %}
+{% block content %}
+
+<!--Navbar-->
+    
+
+    <!-- Cart Section -->
+    <section id="cart" class="cart">
+        <div class="cart-header">
+            <h1>Your Shopping Cart</h1>
+            <p>Review your items, change quantities, then check out.</p>
+        </div>
+
+        <!-- Empty state -->
+        <div id="empty-cart" class="empty-cart" hidden>
+            <h2>Your cart is empty</h2>
+            <p>Looks like you haven't added anything yet.</p>
+            <a href="{% url 'product_list' %}" class="cta-button">Browse Products</a>
+        </div>
+
+        <!-- Cart content -->
+        <div id="cart-content" class="cart-container">
+            <div id="cart-items" class="cart-items"></div>
+
+            <aside class="cart-summary">
+                <h2>Order Summary</h2>
+                <div class="summary-row"><span>Items</span><span id="summary-count">0</span></div>
+                <div class="summary-row"><span>Subtotal</span><span id="summary-subtotal">$0.00</span></div>
+                <div class="summary-row"><span>Shipping</span><span>Free</span></div>
+                <div class="summary-row total"><span>Total</span><span id="summary-total">$0.00</span></div>
+                <button id="checkout-btn" class="add-to-cart full">Proceed to Checkout</button>
+                <a href="{% url 'product_list' %}" class="continue-link">&larr; Continue shopping</a>
+            </aside>
+        </div>
+
+        <!-- Checkout -->
+        <div id="checkout" class="checkout" hidden>
+            <div class="checkout-form">
+                <h2>Customer Information</h2>
+                <form id="checkout-form" method="POST" action="{% url 'checkout' %}" novalidate>
+                    {% csrf_token %}
+                    <!-- Hidden inputs to hold Javascript cart data for Django -->
+                    <input type="hidden" id="cart_data" name="cart_data">
+                    <input type="hidden" id="total_price" name="total_price">
+                    
+                    <div class="form-group">
+                        <label for="name">Name <span class="req">*</span></label>
+                        <input type="text" id="name" name="name" placeholder="Your full name">
+                        <small class="error" id="name-error"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="e.g. 01012345678">
+                        <small class="error" id="phone-error"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" rows="3" placeholder="Street, city, country"></textarea>
+                        <small class="error" id="address-error"></small>
+                    </div>
+                    <button type="submit" class="submit-button">Review Order</button>
+                </form>
+            </div>
+
+            <div class="checkout-review" id="review-box" hidden>
+                <h2>Confirm Your Order</h2>
+                <div id="review-customer" class="review-customer"></div>
+                <ul id="review-items" class="review-items"></ul>
+                <div class="summary-row total"><span>Total</span><span id="review-total">$0.00</span></div>
+                <button id="confirm-btn" class="add-to-cart full">Confirm Order</button>
+            </div>
+        </div>
+
+        <!-- Success message -->
+        <div id="success" class="success" hidden>
+            <div class="success-icon">&#10003;</div>
+            <h2 id="success-message"></h2>
+            <p>Your order number is <strong id="order-id"></strong>. Total paid: <strong id="order-total"></strong></p>
+            <a href="{% url 'product_list' %}" class="cta-button">Continue Shopping</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    
+
+    
+
+{% endblock %}
+{% block extra_scripts %}
+<script src="{% static 'js/script5.js' %}"></script>
+{% endblock %}
